@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>LoRa Water Level Monitoring Dashboard</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+
+<header>LoRa Water Level Monitoring Dashboard</header>
+
+<!-- Device Status Panel -->
+
+<div class="statusPanel">
+
+<div class="statusItem">
+Device Status
+<div id="deviceStatus">🟡 Waiting</div>
+</div>
+
+<div class="statusItem">
+Last Update
+<div id="lastUpdate">--</div>
+</div>
+
+<div class="statusItem">
+RSSI
+<div id="rssiValue">-- dBm</div>
+</div>
+
+<div class="statusItem">
+SNR
+<div id="snrValue">-- dB</div>
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard">
+
+<div class="row">
+
+<!-- System Image -->
+
+<div class="card imageCard" >
+
+<img
+src="lora_module.png"
+alt="Water Monitoring System"
+class="dashboardImage">
+
+</div>
+
+<!-- Water Level -->
+
+<div class="card" onclick="openBlock('distanceBlock')">
+
+<h3>Water Level</h3>
+
+<div id="distance">
+
+<div id="waterLevelText">
+Water Level: -- cm (-- m)
+</div>
+
+<div id="sensorDistanceText">
+
+Sensor Distance: -- cm (-- m)
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Location -->
+
+<div class="card" onclick="openBlock('mapBlock')">
+
+<h3>Location</h3>
+
+<div id="mapSmall"></div>
+
+</div>
+
+<!-- History -->
+
+<div class="card" onclick="openBlock('historyBlock')">
+
+<h3>History</h3>
+
+<button class="viewBtn">View Data</button>
+
+<button class="csvBtn"
+onclick="event.stopPropagation(); downloadCSV();">
+CSV
+</button>
+
+</div>
+
+</div>
+
+<!-- Graphs -->
+
+<div class="graphWrapper">
+
+<!-- Water Level Graph -->
+
+<div class="graphCard">
+
+<h3 style="text-align:center">
+Water Level Graph
+</h3>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+<!-- Sensor Distance Graph -->
+
+<div class="graphCard">
+
+<h3 style="text-align:center">
+Sensor Distance Graph
+</h3>
+
+<canvas id="distanceChart"></canvas>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Expanded Blocks -->
+
+<div class="expand" id="distanceBlock">
+
+<button class="back" onclick="closeBlock()">← Back</button>
+
+<h2>Water Level</h2>
+
+<h1 id="distanceLarge">--</h1>
+
+</div>
+
+<div class="expand" id="mapBlock">
+
+<button class="back" onclick="closeBlock()">← Back</button>
+
+<h2>Location</h2>
+
+<div id="map"></div>
+
+</div>
+
+<div class="expand" id="historyBlock">
+
+<button class="back" onclick="closeBlock()">← Back</button>
+
+<h2>Historical Data</h2>
+
+<div class="historyScroll">
+
+<table id="dataTable">
+
+<tr>
+<th>Date & Time</th>
+<th>Water Level</th>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

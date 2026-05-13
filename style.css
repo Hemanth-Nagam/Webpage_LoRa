@@ -1,0 +1,211 @@
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f8;
+}
+
+header{
+text-align:center;
+padding:20px;
+font-size:28px;
+font-weight:bold;
+}
+
+/* Status Panel */
+
+.statusPanel{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.statusItem{
+background:white;
+padding:12px 20px;
+border-radius:10px;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.statusItem div{
+font-size:18px;
+margin-top:5px;
+}
+
+/* Dashboard Layout */
+
+.row{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.card{
+width:250px;
+height:250px;
+background:white;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+transition:0.2s;
+padding:10px;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+/* Image */
+
+.imageCard{
+padding:0;
+overflow:hidden;
+}
+
+.dashboardImage{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:12px;
+}
+
+/* Water Level */
+
+#distance{
+font-size:22px;
+color:#1a73e8;
+font-weight:bold;
+line-height:1.6;
+}
+
+#sensorDistanceText{
+font-size:18px;
+color:#555;
+margin-top:10px;
+}
+
+/* Buttons */
+
+.csvBtn{
+background:#1a73e8;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.viewBtn{
+background:#28a745;
+color:white;
+border:none;
+padding:8px 16px;
+border-radius:6px;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* Map */
+
+#mapSmall{
+width:180px;
+height:120px;
+border-radius:8px;
+}
+
+#map{
+width:80%;
+height:500px;
+margin:auto;
+}
+
+/* Graph Layout */
+
+.graphWrapper{
+display:flex;
+justify-content:center;
+align-items:flex-start;
+gap:20px;
+margin-bottom:30px;
+width:100%;
+padding:0 20px;
+box-sizing:border-box;
+}
+
+.graphCard{
+flex:1;
+min-width:0;
+max-width:48%;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.graphCard canvas{
+width:100% !important;
+height:350px !important;
+}
+
+/* Expanded View */
+
+.expand{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+display:none;
+z-index:999;
+padding:40px;
+text-align:center;
+overflow:auto;
+}
+
+.back{
+position:absolute;
+top:20px;
+left:20px;
+padding:8px 16px;
+background:#1a73e8;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* History Table */
+
+table{
+border-collapse:collapse;
+margin:auto;
+width:500px;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:8px;
+text-align:center;
+}
+
+th{
+background:#1a73e8;
+color:white;
+}
+
+.historyScroll{
+height:300px;
+overflow-y:auto;
+}
+
